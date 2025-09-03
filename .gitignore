@@ -1,0 +1,21 @@
+# Arquivos Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Ambiente virtual
+venv/
+.env
+
+# Logs e temporários
+*.log
+*.sqlite3
+.DS_Store
+*.bak
+
+# VS Code
+.vscode/

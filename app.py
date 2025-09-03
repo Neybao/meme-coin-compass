@@ -54,6 +54,21 @@ def exibir_banner():
     url_banner = "https://i.postimg.cc/Hj6HZGn/Copilot-20250815-074805.png"
     st.image(url_banner, use_container_width=True)
 
+def exibir_banner(pagina, tema):
+    banners = {
+        "home": {
+            "claro": "https://i.postimg.cc/Hj6HZGn/Copilot-20250815-074805.png",
+            "escuro": "https://i.postimg.cc/xyz123/banner-home-escuro.png"
+        },
+        "login": {
+            "claro": "https://i.postimg.cc/abc456/banner-login-claro.png",
+            "escuro": "https://i.postimg.cc/def789/banner-login-escuro.png"
+        }
+    }
+    url_banner = banners.get(pagina, {}).get(tema)
+    if url_banner:
+        st.image(url_banner, use_container_width=True)
+
 # Inicializa variáveis de sessão
 if "logado" not in st.session_state:
     st.session_state.logado = False

@@ -15,8 +15,12 @@ for simbolo in ativos:
         else:
             st.warning(f"Não foi possível obter o preço para {simbolo}")
 
-cols = st.columns(len(valores))
-for i, (moeda, preco) in enumerate(valores.items()):
-    cols[i].metric(label=moeda, value=f"${preco:.2f}")
+# A alteração começa aqui, na linha que era a 18
+if valores:
+    cols = st.columns(len(valores))
+    for i, (moeda, preco) in enumerate(valores.items()):
+        cols[i].metric(label=moeda, value=f"${preco:.2f}")
+else:
+    st.warning("Não foi possível carregar os dados dos ativos.")
 
 

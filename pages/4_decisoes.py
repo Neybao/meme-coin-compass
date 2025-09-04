@@ -14,8 +14,18 @@ historico = obter_historico(moeda)
 
 if dados and historico:
     # Cálculo de média móvel simples (últimas 24h)
-    preco_atual = dados["price"]
-    media_24h = sum(historico) / len(historico)
+    if "price" in dados:
+        preco_atual = dados["price"]
+    else:
+        st.warning("Não foi possível obter o preço atual para análise.")
+        st.stop()
+
+    if historico:
+        media_24h = sum(historico) / len(historico)
+    else:
+        st.warning("Não foi possível obter o histórico para análise.")
+        st.stop()
+
     delta = preco_atual - media_24h
     forca = f"{(delta / media_24h) * 100:.2f}%"
 

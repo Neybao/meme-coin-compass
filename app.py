@@ -50,9 +50,6 @@ a {
 #banner_path = "login_banner.png"
 
 # Função para exibir o banner
-def exibir_banner():
-    url_banner = "https://i.postimg.cc/Hj6HZGn/Copilot-20250815-074805.png"
-    st.image(url_banner, use_container_width=True)
 
 def exibir_banner(pagina, tema):
     banners = {
@@ -98,7 +95,7 @@ def cadastrar():
 
 # Interface de login
 if not st.session_state.logado:
-    exibir_banner()
+    exibir_banner("login", "claro")
     st.markdown("## 🔐 Acesse sua conta")
     st.text_input("🧑 Usuário", key="usuario")
     st.text_input("🔒 Senha", type="password", key="senha")

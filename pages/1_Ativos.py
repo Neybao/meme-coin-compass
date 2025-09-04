@@ -10,7 +10,10 @@ valores = {}
 for simbolo in ativos:
     dados = consultar_binance_publico(simbolo)
     if dados:
-        valores[simbolo] = float(dados["price"])
+        if dados and "price" in dados:
+            valores[simbolo] = float(dados["price"])
+        else:
+            st.warning(f"Não foi possível obter o preço para {simbolo}")
 
 cols = st.columns(len(valores))
 for i, (moeda, preco) in enumerate(valores.items()):
